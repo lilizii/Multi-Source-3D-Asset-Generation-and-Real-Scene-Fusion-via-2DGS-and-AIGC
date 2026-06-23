@@ -1,0 +1,40 @@
+# =============================================================================
+# 基于 2DGS 与 AIGC 的多源资产生成与真实场景融合 — Python 依赖
+#
+# 安装: pip install -r requirements.txt
+# 三个子仓库 (colmap/2dgs/threestudio) 的依赖需额外安装, 见 AUTODL_GUIDE.md
+# =============================================================================
+
+# --- 核心 ---
+numpy>=1.21
+scipy>=1.8
+PyTorch>=2.0  # 根据 CUDA 版本自行安装
+matplotlib>=3.5
+opencv-python>=4.6
+tqdm
+Pillow
+
+# --- 3D / 点云 ---
+open3d>=0.18
+trimesh[easy]
+plyfile
+
+# --- 2DGS 评估 ---
+scikit-image>=0.21
+lpips>=0.1.4
+
+# --- 视频合成 ---
+imageio>=2.28
+imageio[ffmpeg]
+
+# --- 监控 & 日志 ---
+tensorboard
+swanlab  # 可选, 替代 wandb
+
+# --- 无头渲染 ---
+pyvirtualdisplay  # Xvfb Python 封装
+
+# --- 评估增强 (可选) ---
+open-clip-torch  # CLIP Score 评估 (B/C 纹理质量)
+# threestudio 相关依赖通过其自身 requirements.txt + launch.py 安装
+# 2DGS CUDA 扩展 (diff-surfel-rasterization, simple-knn) 需从源码编译
